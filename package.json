@@ -1,0 +1,21 @@
+{
+  "name": "gold-digger",
+  "version": "1.0.0",
+  "description": "A platform for investing in Gold.",
+  "homepage": "https://github.com/abhinavan00/GoldDigger#readme",
+  "bugs": {
+    "url": "https://github.com/abhinavan00/GoldDigger/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhinavan00/GoldDigger.git"
+  },
+  "license": "ISC",
+  "author": "Abhinav",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}
