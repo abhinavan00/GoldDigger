@@ -1,7 +1,7 @@
-
+import { prices } from "../data/prices.js"
 
 // Handle Live Price Update
-export function handleLivePrice(req, res) {
+export function handleLivePrice(res) {
     res.statusCode = 200
     res.setHeader('Content-Type', 'text/event-stream')
     res.setHeader('Cache-Control', 'no-cache')
