@@ -6,7 +6,9 @@ const PORT = 8000
 const __dirname = import.meta.dirname
 
 const server = http.createServer((req, res) => {
-    serveStatic(req, res)
+    if(!req.url.startsWith('/api')) {
+        return serveStatic(req, res, __dirname)
+    }
 })
 
 server.listen(PORT, () => console.log(`Server is running on ${PORT}`))
