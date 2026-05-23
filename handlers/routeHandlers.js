@@ -1,13 +1,15 @@
 import { prices } from "../data/prices.js"
 import { sendResponse } from "../utils/sendResponse.js"
 import { getRequestData } from "../utils/getRequestData.js"
+import { sanitizeReceivedData } from "../utils/sanitizeReceivedData.js";
 import { addNewInvestment } from "../utils/addNewInvestment.js";
 
 // Handle Post request
 export async function handlePost(req, res) {
     const textBody = await getRequestData(req);
-    addNewInvestment(textBody)
-    sendResponse(res, 200, 'text/plain', textBody)
+    const cleanTextBody = sanitizeReceivedData(textBody)
+    addNewInvestment(cleanTextBody)
+    sendResponse(res, 200, 'text/plain', cleanTextBody)
 }
 
 // Handle Live Price Update
