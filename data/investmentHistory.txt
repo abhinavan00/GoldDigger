@@ -1,0 +1,2 @@
+ Sat May 23 2026 09:30:54 GMT+0530 (India Standard Time), amount paid: 1000, price per oz: ----.-- , gold sold: NaN 
+ Sat May 23 2026 09:31:04 GMT+0530 (India Standard Time), amount paid: 2000, price per oz: 3420.11 , gold sold: 0.5848 

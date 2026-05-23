@@ -7,7 +7,10 @@ investBtn.addEventListener('click', async function() {
     const price = priceDisplay.textContent
     const goldSold = Number(amount)/Number(price)
     const content = `
-    ${new Date()}, amount paid: ${amount}, price per oz: ${price} , gold sold: ${goldSold.toFixed(4)} 
+        ${new Date()}, 
+        amount paid: ${amount}, 
+        price per oz: ${price} , 
+        gold sold: ${goldSold.toFixed(4)} 
     `
     
     const res = await fetch('http://localhost:8000/api', {

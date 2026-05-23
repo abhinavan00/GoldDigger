@@ -1,11 +1,13 @@
 import { prices } from "../data/prices.js"
 import { sendResponse } from "../utils/sendResponse.js"
 import { getRequestData } from "../utils/getRequestData.js"
+import { addNewInvestment } from "../utils/addNewInvestment.js";
 
 // Handle Post request
 export async function handlePost(req, res) {
     const textBody = await getRequestData(req);
-    sendResponse(res, 200, 'text/plain', 'Hello from Server!')
+    addNewInvestment(textBody)
+    sendResponse(res, 200, 'text/plain', textBody)
 }
 
 // Handle Live Price Update
