@@ -1,14 +1,10 @@
 import { prices } from "../data/prices.js"
 import { sendResponse } from "../utils/sendResponse.js"
+import { getRequestData } from "../utils/getRequestData.js"
 
 // Handle Post request
 export async function handlePost(req, res) {
-    let body = ''
-    for await(const chunks of req) {
-        body += chunks
-    }
-
-    console.log(body)
+    const textBody = await getRequestData(req);
     sendResponse(res, 200, 'text/plain', 'Hello from Server!')
 }
 
