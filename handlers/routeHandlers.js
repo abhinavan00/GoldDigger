@@ -1,4 +1,16 @@
 import { prices } from "../data/prices.js"
+import { sendResponse } from "../utils/sendResponse.js"
+
+// Handle Post request
+export async function handlePost(req, res) {
+    let body = ''
+    for await(const chunks of req) {
+        body += chunks
+    }
+
+    console.log(body)
+    sendResponse(res, 200, 'text/plain', 'Hello from Server!')
+}
 
 // Handle Live Price Update
 export function handleLivePrice(res) {
@@ -16,5 +28,5 @@ export function handleLivePrice(res) {
                 price: prices[randomIndex]
             })} \n\n`
         )
-    }, 3000)
+    }, 10000)
 }
