@@ -1,6 +1,9 @@
 const investForm = document.getElementById('invest-form')
 const investmentAmount = document.getElementById('investment-amount');
 const priceDisplay = document.getElementById('price-display');
+const dialogModal = document.querySelector('dialog');
+const dialogModalBtn = document.getElementById('dialog-modal-btn');
+const investmentSummary = document.getElementById('investment-summary')
 
 investForm.addEventListener('submit', async function(e) {
     e.preventDefault()
@@ -22,10 +25,18 @@ investForm.addEventListener('submit', async function(e) {
             body: content
         })
         const data = await (res.text())
-        console.log(data)
-        document.querySelector('dialog').showModal()
+
+        dialogModal.showModal()
+        investmentSummary.textContent = `
+            You just bought ${goldSold.toFixed(4)} ounces (ozt) for £${amount}. \n You will receive documentation shortly.
+        `
 
     } catch(err) {
         console.log(err)
     }
+})
+
+dialogModalBtn.addEventListener('click', function() {
+    dialogModal.close()
+    investForm.reset()
 })
