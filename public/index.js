@@ -23,6 +23,7 @@ investForm.addEventListener('submit', async function(e) {
         })
         const data = await (res.text())
         console.log(data)
+        document.querySelector('dialog').showModal()
 
     } catch(err) {
         console.log(err)
