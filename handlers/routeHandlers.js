@@ -7,11 +7,16 @@ import { investmentEvents } from "../events/newInvestmentEvent.js";
 
 // Handle Post request
 export async function handlePost(req, res) {
-    const textBody = await getRequestData(req);
-    const cleanTextBody = sanitizeReceivedData(textBody)
-    addNewInvestment(cleanTextBody)
-    investmentEvents.emit('new investment added', cleanTextBody)
-    sendResponse(res, 200, 'text/plain', cleanTextBody)
+    try {
+        const textBody = await getRequestData(req);
+        const cleanTextBody = sanitizeReceivedData(textBody)
+        addNewInvestment(cleanTextBody)
+        investmentEvents.emit('new investment added', cleanTextBody)
+        sendResponse(res, 201, 'text/plain', cleanTextBody)
+
+    } catch (err) {
+        sendResponse(res, 400, 'application/json', JSON.stringify({error: err}) )
+    }
 }
 
 // Handle Live Price Update
@@ -30,5 +35,5 @@ export function handleLivePrice(res) {
                 price: prices[randomIndex]
             })} \n\n`
         )
-    }, 10000)
+    }, 4000)
 }

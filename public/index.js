@@ -1,8 +1,9 @@
-const investBtn = document.getElementById('invest-btn');
+const investForm = document.getElementById('invest-form')
 const investmentAmount = document.getElementById('investment-amount');
 const priceDisplay = document.getElementById('price-display');
 
-investBtn.addEventListener('click', async function() {
+investForm.addEventListener('submit', async function(e) {
+    e.preventDefault()
     const amount = investmentAmount.value
     const price = priceDisplay.textContent
     const goldSold = Number(amount)/Number(price)
@@ -12,14 +13,18 @@ investBtn.addEventListener('click', async function() {
         price per Oz: ￡${price} , 
         gold sold: ${goldSold.toFixed(4)} Oz 
     `
-    
-    const res = await fetch('http://localhost:8000/api', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'text/plain'
-        },
-        body: content
-    })
-    const data = await (res.text())
-    console.log(data)
+    try{
+        const res = await fetch('./api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: content
+        })
+        const data = await (res.text())
+        console.log(data)
+
+    } catch(err) {
+        console.log(err)
+    }
 })
