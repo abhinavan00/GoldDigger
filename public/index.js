@@ -24,7 +24,7 @@ investForm.addEventListener('submit', async function(e) {
             },
             body: content
         })
-        const data = await (res.json())
+        const data = await (res.text())
 
         console.log(data)
 
