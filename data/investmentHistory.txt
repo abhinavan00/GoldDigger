@@ -26,3 +26,6 @@
  2026-05-24T08:52:39.672Z, amount paid: ￡1124, price per Oz: ￡3384.00 , gold sold: 0.3322 Oz 
  2026-05-24T08:56:14.395Z, amount paid: ￡113, price per Oz: ￡3420.11 , gold sold: 0.0330 Oz 
  2026-05-24T08:58:19.987Z, amount paid: ￡450, price per Oz: ￡3396.84 , gold sold: 0.1325 Oz 
+ 2026-05-24T09:01:32.136Z, amount paid: ￡866, price per Oz: ￡3423.00 , gold sold: 0.2530 Oz 
+ 2026-05-26T04:31:14.000Z, amount paid: ￡121, price per Oz: ￡3385.34 , gold sold: 0.0357 Oz 
+ 2026-05-26T04:35:19.478Z, amount paid: ￡131, price per Oz: ￡3397.00 , gold sold: 0.0386 Oz 

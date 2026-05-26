@@ -12,7 +12,8 @@ export async function handlePost(req, res) {
         const cleanTextBody = sanitizeReceivedData(textBody)
         addNewInvestment(cleanTextBody)
         investmentEvents.emit('new investment added', cleanTextBody)
-        sendResponse(res, 201, 'text/plain', cleanTextBody)
+        const formattedData = cleanTextBody.replace(/\s+/g, " ")
+        sendResponse(res, 201, 'application/json', JSON.stringify({formattedData}))
 
     } catch (err) {
         sendResponse(res, 400, 'application/json', JSON.stringify({error: err}) )

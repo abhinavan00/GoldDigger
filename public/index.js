@@ -24,7 +24,9 @@ investForm.addEventListener('submit', async function(e) {
             },
             body: content
         })
-        const data = await (res.text())
+        const data = await (res.json())
+
+        console.log(data)
 
         dialogModal.showModal()
         investmentSummary.textContent = `
