@@ -1,6 +1,7 @@
 const eventSource = new EventSource('http://localhost:8000/api/liveprice')
 
 const priceDisplay = document.getElementById('price-display');
+const connectionStatus = document.getElementById('connection-status');
 
 // HANDLE LIVE PRICE UPDATe
 eventSource.onmessage = (event) => {
@@ -11,5 +12,6 @@ eventSource.onmessage = (event) => {
 
 // HANDLE CONNECTION LOSS
 eventSource.onerror = () => {
+    connectionStatus.textContent = `Offline 🔴`
     console.log('Connection Lost. Attempting to reconnect...')
 }
