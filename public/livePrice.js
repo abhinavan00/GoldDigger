@@ -15,5 +15,4 @@ eventSource.onmessage = (event) => {
 eventSource.onerror = () => {
     connectionStatus.textContent = `Offline 🔴`
     priceDisplay.textContent = `----.--`
-    console.log('Connection Lost. Attempting to reconnect...')
 }
