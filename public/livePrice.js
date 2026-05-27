@@ -7,11 +7,13 @@ const connectionStatus = document.getElementById('connection-status');
 eventSource.onmessage = (event) => {
     const data = JSON.parse(event.data)
     const price = data.price
+    connectionStatus.textContent = `Live Price 🟢`
     priceDisplay.textContent = price
 }
 
 // HANDLE CONNECTION LOSS
 eventSource.onerror = () => {
     connectionStatus.textContent = `Offline 🔴`
+    priceDisplay.textContent = `----.--`
     console.log('Connection Lost. Attempting to reconnect...')
 }
