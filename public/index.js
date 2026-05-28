@@ -26,8 +26,6 @@ investForm.addEventListener('submit', async function(e) {
         })
         const data = await (res.text())
 
-        console.log(data)
-
         dialogModal.showModal()
         investmentSummary.textContent = `
             You just bought ${goldSold.toFixed(4)} ounces (ozt) for £${amount}. \n You will receive documentation shortly.
